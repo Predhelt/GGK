@@ -1,0 +1,32 @@
+<html>
+    <head>
+      {% if title %}
+      <title>GGK - {{ title }}</title>
+      {% else %}
+      <title>Gimoire of the God-King</title>
+      {% endif %}
+    </head>
+    <body>
+      <div>
+        Grimoire of the God-King:
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('spellbooks') }}">Spellbooks</a>
+        <a href="{{ url_for('spells') }}">Spells</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('settings') }}">Settings</a>
+      </div>
+      <hr>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <u1>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </u1>
+      {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </body>
+</html>
